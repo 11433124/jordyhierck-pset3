@@ -1,8 +1,8 @@
 package com.example.jordy.watchlist;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Jordy on 15-11-2016.
  */
 
-public class TracksAdapter extends AppCompatActivity {
+public class TracksAdapter extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

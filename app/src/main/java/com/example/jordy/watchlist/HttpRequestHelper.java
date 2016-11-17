@@ -1,7 +1,6 @@
 package com.example.jordy.watchlist;
 
-import android.support.v7.app.AppCompatActivity;
-
+import android.app.Activity;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,13 +9,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by Jordy on 17-11-2016.
+ * Created by Jordy on 15-11-2016
+ * 11433124
+ * Minor Programmeren
+ * Universiteit van Amsterdam
+ *
+ * Handles HTTP requests
  */
 
-public class HttpRequestHelper extends AppCompatActivity {
+public class HttpRequestHelper extends Activity {
     // make string for URL
-    private static final String url1 = "";
-    private static final String url2 = "";
+    private static final String url1 = "http://www.omdbapi.com/?=";
 
     // method to download from server
     protected static synchronized String downloadFromServer(String... params) {
@@ -28,7 +31,7 @@ public class HttpRequestHelper extends AppCompatActivity {
         String chosenTag = params[0];
 
         // complete string for URL
-        String completeUrl = url1 + chosenTag + url2;
+        String completeUrl = url1 + chosenTag;
 
         // turn string into URL
         URL url = null;
