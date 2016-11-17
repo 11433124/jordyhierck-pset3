@@ -24,7 +24,6 @@
         android:text="Your watchlist"
         android:id="@+id/watchlist"
         android:layout_alignParentBottom="true"
-        android:layout_
         android:onClick="watchlistView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
