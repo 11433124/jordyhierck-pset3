@@ -1,7 +1,7 @@
 package com.example.jordy.watchlist;
 
-import android.app.Activity;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 
 
-public class AsyncTask extends Activity {
+public class MovieAsyncTask extends AsyncTask<String, Integer, String> {
 
     Context context;
     MainActivity activity;
@@ -29,7 +29,7 @@ public class AsyncTask extends Activity {
         this.context = this.activity.getApplicationContext(); // mogelijk niet nodig
 
 
-    // onPreExecute(). Toast wordt nu aangemaakt. In main activity maken we toast aan, end an nu gaan we pas echt de functie uitvoeren end us wordt dan de toast geshowed.
+        // onPreExecute(). Toast wordt nu aangemaakt. In main activity maken we toast aan, end an nu gaan we pas echt de functie uitvoeren end us wordt dan de toast geshowed.
 
     protected void onPreExecute() {
         Toast.makeText(context, "Getting data from server", Toast.LENGTH_LONG);
@@ -37,7 +37,7 @@ public class AsyncTask extends Activity {
 
     protected String doInBackground(String... params) {
         return HttpRequestHelper.downloadFromServer(params);
-    // automatisch wordt wat we hier in background returnen, meegegeven aan onPostExecute
+        // automatisch wordt wat we hier in background returnen, meegegeven aan onPostExecute
     }
 
     // onPostExecute
@@ -51,7 +51,7 @@ public class AsyncTask extends Activity {
         }
         else {
             // in TrackData staan titel, omschrijving e.d., zelf aangemaakt.
-            ArrayList<TrackData> trackdata = new ArrayList<>();
+            ArrayList<MovieData> trackdata = new ArrayList<>();
             try {
                 JSONObject respObj = new JSONObject(result);
                 JSONObject moviesObj = respObj.getJSONObject("movies");
@@ -60,9 +60,16 @@ public class AsyncTask extends Activity {
                 // doorloop het JSON om elk object eruit te halen
                 for (int i = 0; i < movies.length(); i++) {
                     JSONObject movie = movies.getJSONObject(i);
-                    String movie_title = movie.getString("Title");
-                    String movie_year = movie.getString("Year");
-                    trackdata.add(new TrackData(movie_title, movie_year));
+                    String title = movie.getString("Title");
+                    String year = movie.getString("Year");
+                    String runtime = movie.getString("Runtime");
+                    String genre = movie.getString("Genre");
+                    String actors = movie.getString("Actors");
+                    String plot = movie.getString("Plot");
+                    String language = movie.getString("Language");
+                    String poster = movie.getString("Poster");
+                    String imdb = movie.getString("imdbRating");
+                    trackdata.add(new MovieData(title, year, runtime, genre, actors, plot, language, poster, imdb));
                 }
             }
             catch (JSONException e) {
@@ -73,4 +80,3 @@ public class AsyncTask extends Activity {
         }
     }
 }
-

@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Jordy on 15-11-2016.
  */
 
-public class TracksAdapter extends Activity {
+public class MovieAdapter extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,4 +81,3 @@ public class TracksAdapter extends Activity {
     }
 
 }
-
