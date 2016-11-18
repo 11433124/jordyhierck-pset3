@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
 
-import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,11 +22,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void watchlistView(View view){
-        Intent getWatchlistView = new Intent(this, TracksAdapter.class);
+        Intent getWatchlistView = new Intent(this, MovieAdapter.class);
 
         startActivity(getWatchlistView);
 
     }
 
+    public void searchView(View view){
+        EditText user_input = (EditText) findViewById(R.id.user_input);
+
+        if (user_input.length() != 0) {
+            String movieTitle = user_input.getText().toString();
+
+            MovieAsyncTask asyncTask = new MovieAsyncTask(this);
+            asyncTask.execute(movieTitle);
+        }
+        else {
+            user_input.setError("Please enter a movietitle");
+        }
+
+        user_input.setText("");
+    }
+
+    public void setData(){
+
+    }
 
 }

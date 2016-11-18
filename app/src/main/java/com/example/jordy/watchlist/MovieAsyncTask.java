@@ -23,10 +23,10 @@ public class MovieAsyncTask extends AsyncTask<String, Integer, String> {
     Context context;
     MainActivity activity;
 
-    // constructor waarmee je een instance kan aanmaken. In deze class kunnen we nu ook bij de main activity.
-    public void TagAsyncTask(MainActivity activity) {
+    // constructor waareme je een instance kan aanmaken. In deze class kunnen we nu ook bij de main activity.
+    public MovieAsyncTask(MainActivity activity) {
         this.activity = activity;
-        this.context = this.activity.getApplicationContext(); // mogelijk niet nodig
+        this.context = this.activity.getApplicationContext(); }
 
 
         // onPreExecute(). Toast wordt nu aangemaakt. In main activity maken we toast aan, end an nu gaan we pas echt de functie uitvoeren end us wordt dan de toast geshowed.
@@ -51,7 +51,7 @@ public class MovieAsyncTask extends AsyncTask<String, Integer, String> {
         }
         else {
             // in TrackData staan titel, omschrijving e.d., zelf aangemaakt.
-            ArrayList<MovieData> trackdata = new ArrayList<>();
+            ArrayList<MovieData> moviedata = new ArrayList<>();
             try {
                 JSONObject respObj = new JSONObject(result);
                 JSONObject moviesObj = respObj.getJSONObject("movies");
@@ -62,20 +62,24 @@ public class MovieAsyncTask extends AsyncTask<String, Integer, String> {
                     JSONObject movie = movies.getJSONObject(i);
                     String title = movie.getString("Title");
                     String year = movie.getString("Year");
-                    String runtime = movie.getString("Runtime");
-                    String genre = movie.getString("Genre");
-                    String actors = movie.getString("Actors");
-                    String plot = movie.getString("Plot");
-                    String language = movie.getString("Language");
-                    String poster = movie.getString("Poster");
-                    String imdb = movie.getString("imdbRating");
-                    trackdata.add(new MovieData(title, year, runtime, genre, actors, plot, language, poster, imdb));
+                    String type = movie.getString("Type");
+//                    String runtime = movie.getString("Runtime");
+//                    String genre = movie.getString("Genre");
+//                    String actors = movie.getString("Actors");
+//                    String plot = movie.getString("Plot");
+//                    String language = movie.getString("Language");
+//                    String poster = movie.getString("Poster");
+//                    String imdb = movie.getString("imdbRating");
+                    moviedata.add(new MovieData(title, year, type));
                 }
             }
             catch (JSONException e) {
                 e.printStackTrace();
             }
-            this.activity.setData(trackdata);
+
+//            String message = moviedata.get(0).getYear();
+//            Toast.makeText(context, "year is " + message, Toast.LENGTH_LONG);
+            // activity.setData(moviedata);
 
         }
     }

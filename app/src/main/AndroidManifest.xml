@@ -16,13 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AsyncTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".HttpRequestHelper">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +24,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TracksAdapter">
+        <activity android:name=".MovieAdapter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,13 +32,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TrackData">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
     </application>
 

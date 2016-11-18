@@ -17,11 +17,13 @@ public class MovieData {
     public String poster;
     public String language;
     public String imdb;
+    public String type;
 
-    public MovieData(String title, String year, String runtime, String genre, String actors, String plot, String poster, String language, String imdb){
+    public MovieData(String title, String year, String type){
         this.title = title;
         this.year = year;
         this.runtime = runtime;
+        this.type = type;
         this.genre = genre;
         this.actors = actors;
         this.plot = plot;
@@ -41,6 +43,8 @@ public class MovieData {
     public String getGenre() {
         return genre;
     }
+
+    public String getType() { return type; }
 
     public String getImdb() {
         return imdb;

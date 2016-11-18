@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class HttpRequestHelper extends Activity {
     // make string for URL
-    private static final String url1 = "http://www.omdbapi.com/?=";
+    private static final String url1 = "http://www.omdbapi.com/?s=";
 
     // method to download from server
     protected static synchronized String downloadFromServer(String... params) {

@@ -13,6 +13,9 @@ import java.util.List;
 
 /**
  * Created by Jordy on 15-11-2016.
+ *
+ *
+ * credits for adapter go to http://www.vogella.com/tutorials/AndroidListView/article.html
  */
 
 public class MovieAdapter extends Activity {
