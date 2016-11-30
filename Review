@@ -1,0 +1,29 @@
+Peer review done by Nicole Ferreira Silverio.
+
+Peer review Jordy
+Names – 4
+Headers – 2
+Comments – 1/2
+Layout – 2
+Formatting – 4
+Flow – 4
+Idiom – 3
+Expressions – 4
+Decomposition –  3
+Modularization – 3
+
+
+Comments on overall code:
+-	Some files contain comments, but most have a lack thereof
+-	Referencing to the source for the code used is good, but do not forget to comment on the code you copied to show that you understand what the code does
+-	Delete unused (commented out) or unnecessary code, this distracts from the code that actually matters
+-	Explanation of the code at the top of the files is missing on some files
+-	Sometimes your comments are underneath the lines of code you’re trying to explain? Comments should be above the corresponding line(s) of code (see MovieAsyncTask.java)
+-	Pay attention while writing comments; I’ve noticed some comments which do not match the code (variable names, etc.)
+-	Be consistent in the language you choose for the comments
+-	Method setData() in MainActivity.java has no code whatsoever; why is it there?
+-	There is quite a lot of code in the MovieAdapter.java class that is completely unnecessary for what you are trying to accomplish. If you copy data from a source, try to only use the code you actually need to make it easier for yourself (and others).
+
+Things I take away from this:
+- More comments, less unnecessary code!
+- Focus on headers and layout of the code. Try to remove redundant lines.
